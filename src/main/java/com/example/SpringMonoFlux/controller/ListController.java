@@ -47,6 +47,11 @@ public class ListController {
       return service.updateListStatusToActive(listName);
     }
 
+    @PutMapping("/updateAllStatus/{status}")
+    public Flux<ListTodo> updateAllStatus(@PathVariable boolean status){
+      return service.updateAllStatus(status);
+    }
+
     @DeleteMapping("/deleteList/{id}")
     public Mono<Void> deleteByListName(@PathVariable String id){
       return service.deleteByListName(id);

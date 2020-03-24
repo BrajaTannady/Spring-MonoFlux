@@ -1,4 +1,5 @@
 package com.example.SpringMonoFlux.service.impl;
+
 import com.example.SpringMonoFlux.entity.ListTodo;
 import com.example.SpringMonoFlux.repository.ListRepository;
 import com.example.SpringMonoFlux.service.api.ListService;
@@ -57,6 +58,17 @@ public class ListServiceImpl implements ListService {
           return listRepository.save(existingList);
         });
   }
+
+  @Override
+  public Flux<ListTodo> updateAllStatus(boolean status) {
+    return listRepository
+        .findAll()
+        .flatMap(existingList -> {
+          existingList.setStatus(status);
+          return listRepository.save(existingList);
+        });
+  }
+
 
   @Override
   public Mono<Void> deleteByListName(String id) {

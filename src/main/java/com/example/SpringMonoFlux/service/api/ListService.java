@@ -12,13 +12,15 @@ public interface ListService {
 
   Flux<ListTodo> findAllListByStatus(boolean status);
 
-  Mono<ListTodo> updateList(String listName, ListTodo updatedList);
+  Mono<ListTodo> updateList(String id, ListTodo updatedList);
 
-  Mono<ListTodo> updateListStatusToCompleted(String listName);
+  Mono<ListTodo> updateListStatusToCompleted(String id);
 
-  Mono<ListTodo> updateListStatusToActive(String listName);
+  Mono<ListTodo> updateListStatusToActive(String id);
 
-  Mono<Void> deleteByListName(String listName);
+  Flux<ListTodo> updateAllStatus(boolean status);
+
+  Mono<Void> deleteByListName(String id);
 
   Mono<Void> deleteAll();
 }
