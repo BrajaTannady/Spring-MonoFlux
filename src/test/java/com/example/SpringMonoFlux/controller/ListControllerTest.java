@@ -47,14 +47,22 @@ class ListControllerTest {
 
   @Test
   void findAllList() {
-    ListTodo listTodo = ListTodo.builder().build();
+    ListTodo listTodo = ListTodo.builder()
+        .id("1")
+        .listName("A")
+        .status(false)
+        .build();
     when(listService.findAllList()).thenReturn(Flux.just(listTodo));
     webTestClient.get()
         .uri("/findAllList")
         .accept(MediaType.APPLICATION_JSON)
         .exchange()
         .expectStatus().isOk()
-        .expectBodyList(ListTodo.class);
+        //        .expectBodyList(ListTodo.class);
+        .expectBody()
+        .jsonPath("$[0].id").isEqualTo("1")
+        .jsonPath("$[0].listName").isEqualTo("A")
+        .jsonPath("$[0].status").isEqualTo(false);
     verify(listService).findAllList();
   }
 
@@ -70,7 +78,11 @@ class ListControllerTest {
         .uri("/findAllListByStatus/{status}", false)
         .exchange()
         .expectStatus().isOk()
-        .expectBodyList(ListTodo.class);
+//        .expectBodyList(ListTodo.class);
+        .expectBody()
+        .jsonPath("$[0].id").isEqualTo("1")
+        .jsonPath("$[0].listName").isEqualTo("A")
+        .jsonPath("$[0].status").isEqualTo(false);
     verify(listService).findAllListByStatus(false);
   }
 
@@ -78,7 +90,12 @@ class ListControllerTest {
   void updateList() {
     String id = "1";
     ListTodo listTodo = ListTodo.builder().build();
-    when(listService.updateList(id, listTodo)).thenReturn(Mono.just(listTodo));
+    ListTodo updated = ListTodo.builder()
+        .id("1")
+        .listName("A")
+        .status(false)
+        .build();
+    when(listService.updateList(id, listTodo)).thenReturn(Mono.just(updated));
     webTestClient.put()
         .uri("/updateListName/{id}", id)
         .contentType(MediaType.APPLICATION_JSON)
@@ -86,45 +103,70 @@ class ListControllerTest {
         .body(Mono.just(listTodo), ListTodo.class)
         .exchange()
         .expectStatus().isOk()
-        .expectBody(ListTodo.class);
+        .expectBody()
+        .jsonPath("$.id").isEqualTo("1")
+        .jsonPath("$.listName").isEqualTo("A")
+        .jsonPath("$.status").isEqualTo(false);
     verify(listService).updateList(id, listTodo);
   }
 
   @Test
   void updateListStatusToCompleted() {
     String id = "1";
-    ListTodo listTodo = ListTodo.builder().build();
+    ListTodo listTodo = ListTodo.builder()
+        .id("1")
+        .listName("A")
+        .status(false)
+        .build();
     when(listService.updateListStatusToCompleted(id)).thenReturn(Mono.just(listTodo));
     webTestClient.put()
         .uri("/updateCompleted/{id}", id)
         .exchange()
         .expectStatus().isOk()
-        .expectBody(ListTodo.class);
+        .expectBody()
+        .jsonPath("$.id").isEqualTo("1")
+        .jsonPath("$.listName").isEqualTo("A")
+        .jsonPath("$.status").isEqualTo(false);
+
     verify(listService).updateListStatusToCompleted(id);
   }
 
   @Test
   void updateListStatusToActive() {
     String id = "1";
-    ListTodo listTodo = ListTodo.builder().build();
+    ListTodo listTodo = ListTodo.builder()
+        .id("1")
+        .listName("A")
+        .status(true)
+        .build();
     when(listService.updateListStatusToActive(id)).thenReturn(Mono.just(listTodo));
     webTestClient.put()
         .uri("/updateActive/{id}", id)
         .exchange()
         .expectStatus().isOk()
-        .expectBody(ListTodo.class);
+        .expectBody()
+        .jsonPath("$.id").isEqualTo("1")
+        .jsonPath("$.listName").isEqualTo("A")
+        .jsonPath("$.status").isEqualTo(true);
     verify(listService).updateListStatusToActive(id);
   }
 
   @Test
   void updateAllStatus() {
-    ListTodo listTodo = ListTodo.builder().build();
+    ListTodo listTodo = ListTodo.builder()
+        .id("1")
+        .listName("A")
+        .status(false)
+        .build();
     when(listService.updateAllStatus(false)).thenReturn(Flux.just(listTodo));
     webTestClient.put()
         .uri("/updateAllStatus/{status}", false)
         .exchange()
         .expectStatus().isOk()
-        .expectBodyList(ListTodo.class);
+        .expectBody()
+        .jsonPath("$[0].id").isEqualTo("1")
+        .jsonPath("$[0].listName").isEqualTo("A")
+        .jsonPath("$[0].status").isEqualTo(false);
     verify(listService).updateAllStatus(false);
   }
 
