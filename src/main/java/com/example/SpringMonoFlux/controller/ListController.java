@@ -42,9 +42,9 @@ public class ListController {
       return service.updateListStatusToCompleted(id);
     }
 
-    @PutMapping("/updateActive/{listName}")
-    public Mono<ListTodo> updateListStatusToActive(@PathVariable String listName){
-      return service.updateListStatusToActive(listName);
+    @PutMapping("/updateActive/{id}")
+    public Mono<ListTodo> updateListStatusToActive(@PathVariable String id){
+      return service.updateListStatusToActive(id);
     }
 
     @PutMapping("/updateAllStatus/{status}")
