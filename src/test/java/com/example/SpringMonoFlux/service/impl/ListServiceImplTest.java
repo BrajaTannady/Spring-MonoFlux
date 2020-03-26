@@ -44,7 +44,8 @@ class ListServiceImplTest {
         .build();
     when(listRepository.save(listTodo)).thenReturn(Mono.just(listTodo));
     StepVerifier.create(listService.addListTodo(listTodo))
-        .expectNextCount(1)
+        //        .expectNextCount(1)
+        .assertNext(t -> assertThat(t).isEqualTo(listTodo))
         .expectComplete()
         .verify();
     verify(this.listRepository).save(listTodo);
@@ -65,7 +66,17 @@ class ListServiceImplTest {
             .build()));
 
     StepVerifier.create(listService.findAllList())
-        .expectNextCount(2)
+        //        .expectNextCount(2)
+        .assertNext(t -> assertThat(t).isEqualTo(ListTodo.builder()
+            .id("1")
+            .listName("A")
+            .status(true)
+            .build()))
+        .assertNext(t -> assertThat(t).isEqualTo(ListTodo.builder()
+            .id("2")
+            .listName("B")
+            .status(true)
+            .build()))
         .expectComplete()
         .verify();
     verify(this.listRepository).findAll();
@@ -73,9 +84,18 @@ class ListServiceImplTest {
 
   @Test
   void findAllListByStatus() {
-    when(listRepository.findAllByStatus(false)).thenReturn(Flux.just());
+    when(listRepository.findAllByStatus(false)).thenReturn(Flux.just(ListTodo.builder()
+        .id("1")
+        .listName("A")
+        .status(false)
+        .build()));
     StepVerifier.create(listService.findAllListByStatus(false))
-        .expectNextCount(0)
+        //        .expectNextCount(0)
+        .assertNext(t -> assertThat(t).isEqualTo(ListTodo.builder()
+            .id("1")
+            .listName("A")
+            .status(false)
+            .build()))
         .expectComplete()
         .verify();
     verify(this.listRepository).findAllByStatus(false);
@@ -157,7 +177,7 @@ class ListServiceImplTest {
     when(listRepository.findById(id)).thenReturn(Mono.just(listTodo));
     when(listRepository.save(updated)).thenReturn(Mono.just(updated));
 
-    StepVerifier.create(listService.updateListStatusToCompleted(id))
+    StepVerifier.create(listService.updateListStatusToActive(id))
         .assertNext(t -> assertThat(t).isEqualTo(updated))
         .expectComplete()
         .verify();
