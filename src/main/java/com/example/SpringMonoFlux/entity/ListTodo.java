@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.annotation.Generated;
+import java.io.Serializable;
+
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "List")
-public class ListTodo {
+public class ListTodo implements Serializable {
   @Id
   private String id;
   private String listName;
