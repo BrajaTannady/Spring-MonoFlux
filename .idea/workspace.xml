@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a223d38c-5f07-4d10-9bf0-822ce0d9fec2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-MonoFlux.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Spring-MonoFlux.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringMonoFlux/SpringMonoFluxApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringMonoFlux/SpringMonoFluxApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringMonoFlux/controller/ListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringMonoFlux/controller/ListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/SpringMonoFlux/SpringMonoFluxApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/SpringMonoFlux/SpringMonoFluxApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/SpringMonoFlux/controller/ListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/SpringMonoFlux/controller/ListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/SpringMonoFlux/service/impl/ListServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/SpringMonoFlux/service/impl/ListServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringMonoFlux/repository/ListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringMonoFlux/repository/ListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bootstrap.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +21,7 @@
         <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -61,6 +55,9 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reactor" />
   </component>
   <component name="ReactorSettings">
@@ -199,7 +196,15 @@
       <workItem from="1586139088932" duration="1174000" />
       <workItem from="1586141598271" duration="6645000" />
       <workItem from="1586174992158" duration="2180000" />
-      <workItem from="1586219292551" duration="2344000" />
+      <workItem from="1586219292551" duration="12081000" />
+      <workItem from="1586319184106" duration="1865000" />
+      <workItem from="1586375102910" duration="4877000" />
+      <workItem from="1586696651380" duration="670000" />
+      <workItem from="1586763006897" duration="485000" />
+      <workItem from="1586763552336" duration="430000" />
+      <workItem from="1586764042496" duration="722000" />
+      <workItem from="1586765037257" duration="1771000" />
+      <workItem from="1586768038698" duration="3416000" />
     </task>
     <servers />
   </component>
@@ -223,10 +228,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.728@0.0.1366.728" timestamp="1584700619717" />
-    <state x="463" y="65" key="FileChooserDialogImpl" timestamp="1585879650134">
+    <state x="463" y="65" key="FileChooserDialogImpl" timestamp="1586765623438">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="65" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585879650134" />
+    <state x="463" y="65" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586765623438" />
     <state width="1322" height="212" key="GridCell.Tab.0.bottom" timestamp="1586177466863">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -279,18 +284,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1585643051982" />
-    <state x="348" y="63" key="NewModule_or_Project.wizard" timestamp="1585879651832">
+    <state x="348" y="63" key="NewModule_or_Project.wizard" timestamp="1586765625069">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="348" y="63" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1585879651832" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1584694732894">
+    <state x="348" y="63" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1586765625069" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1586763070335">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1584694732894" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586219301147">
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586763070335" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586765042989">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586219301147" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586765042989" />
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584948194000">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
